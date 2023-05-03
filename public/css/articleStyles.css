@@ -12,3 +12,12 @@
   justify-content: center;
   font-weight: bold;
 }
+
+#btn-send {
+  height: 35px;
+}
+
+small {
+  color: rgb(137, 137, 137);
+  font-style: italic;
+}
