@@ -8,7 +8,12 @@ function findOne(req, res) {
   res.render("notice");
 }
 
+function admin(req, res) {
+  res.render("admin");
+}
+
 module.exports = {
   findAll,
   findOne,
+  admin,
 };
