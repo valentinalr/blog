@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/articleStyles.css" />
   </head>
   <body>
-    <header></header>
+    <header><%- include("partials/header") %></header>
     <!-- HEADER -->
     <div id="hero" class="text-center">
       <h1>Man must explore, and this is exploration at its greatest</h1>
@@ -56,12 +56,13 @@
               Exercitationem deserunt praesentium officiis esse?
             </p>
           </section>
+          <hr />
         </div>
       </div>
-      <hr />
+
       <div class="row align-items-center">
         <div class="col-md-6 mx-auto mt-3">
-          <h4>Add your coment</h4>
+          <h5>Add your coment</h5>
           <form>
             <div class="mb-3">
               <label for="inputName" class="form-label"></label>
@@ -113,7 +114,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer></footer>
+    <footer><%- include("partials/footer") %></footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

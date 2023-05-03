@@ -13,11 +13,22 @@
   font-weight: bold;
 }
 
+#content {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+}
+
 #btn-send {
   height: 35px;
+}
+
+#comments {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
 }
 
 small {
   color: rgb(137, 137, 137);
   font-style: italic;
+  font-family: "Times New Roman", Times, serif;
 }
