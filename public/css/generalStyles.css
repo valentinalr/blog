@@ -7,7 +7,14 @@ h4{
     margin-right: 15%;
 }
 
-.container{
+.headerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1%;
+}
+
+.footerContainer{
     display: flex;
     justify-content: center;
     align-items: center;
