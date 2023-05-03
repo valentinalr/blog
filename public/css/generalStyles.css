@@ -1,0 +1,30 @@
+h4{
+    color: white;
+    margin-left: 15%;
+}
+
+.btn{
+    margin-right: 15%;
+}
+
+.headerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1%;
+}
+
+.footerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1%;
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    font-size: 0.9rem;
+}
