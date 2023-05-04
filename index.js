@@ -1,5 +1,4 @@
 const express = require("express");
-const sql = require("mysql2");
 const app = express();
 const routes = require("./routes");
 
