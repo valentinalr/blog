@@ -28,7 +28,10 @@
             <%for (const articulo of listaDeArticulos) {%>
             <div id="article">
               <h2 class="articleTitle">
-                <a href="/notice/<%=articulo.id%>" id="contentRoute"
+                <a
+                  href="/notice/<%=articulo.id%>"
+                  target="_blank"
+                  id="contentRoute"
                   ><%=articulo.title%></a
                 >
               </h2>

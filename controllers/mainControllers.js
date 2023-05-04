@@ -63,7 +63,9 @@ async function api(req, res) {
 }
 
 async function findAll(req, res) {
-  const listaDeArticulos = await Notice.findAll();
+  const listaDeArticulos = await Notice.findAll({
+    order: [["createdAt", "DESC"]],
+  });
   res.render("home", {
     listaDeArticulos,
   });
