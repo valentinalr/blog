@@ -26,3 +26,13 @@
   font-family: "Times New Roman", Times, serif;
   color: grey;
 }
+
+#contentRoute {
+  text-decoration: none;
+  color: #001736;
+}
+
+#contentRoute:hover {
+  color: #707f91;
+  text-decoration: underline;
+}

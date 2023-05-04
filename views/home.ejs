@@ -25,53 +25,16 @@
       <div class="container" id="mainContent">
         <div class="row align-items-center mt-5">
           <div class="col-8 mx-auto">
+            <%for (const articulo of listaDeArticulos) {%>
             <div id="article">
               <h2 class="articleTitle">
-                Man must explore, and this is exploration at its greatest
+                <a href="/notice/<%=articulo.id%>" id="contentRoute"
+                  ><%=articulo.title%></a
+                >
               </h2>
-              <small class="autor"
-                >Creado por Marty McFly el 24 de Setiembre, 2022</small
-              >
+              <small class="autor"><%=articulo.author%></small>
               <hr />
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-5">
-          <div class="col-8 mx-auto">
-            <div id="article">
-              <h2 class="articleTitle">
-                Man must explore, and this is exploration at its greatest
-              </h2>
-              <small class="autor"
-                >Creado por Marty McFly el 24 de Setiembre, 2022</small
-              >
-              <hr />
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-5">
-          <div class="col-8 mx-auto">
-            <div id="article">
-              <h2 class="articleTitle">
-                Man must explore, and this is exploration at its greatest
-              </h2>
-              <small class="autor"
-                >Creado por Marty McFly el 24 de Setiembre, 2022</small
-              >
-              <hr />
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center mt-5">
-          <div class="col-8 mx-auto">
-            <div id="article">
-              <h2 class="articleTitle">
-                Man must explore, and this is exploration at its greatest
-              </h2>
-              <small class="autor"
-                >Creado por Marty McFly el 24 de Setiembre, 2022</small
-              >
-              <hr />
+              <%}%>
             </div>
           </div>
         </div>
