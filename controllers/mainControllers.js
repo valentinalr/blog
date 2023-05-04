@@ -63,7 +63,10 @@ async function api(req, res) {
 }
 
 async function findAll(req, res) {
-  res.render("home");
+  const listaDeArticulos = await Notice.findAll();
+  res.render("home", {
+    listaDeArticulos,
+  });
 }
 
 async function findOne(req, res) {
