@@ -72,7 +72,9 @@ async function findAll(req, res) {
 }
 
 async function findOne(req, res) {
-  res.render("notice");
+  const id = req.params.id;
+  const article = await Notice.findByPk(id);
+  res.render("notice", { article });
 }
 
 async function admin(req, res) {
