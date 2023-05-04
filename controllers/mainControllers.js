@@ -21,11 +21,11 @@ Notice.init(
       allowNull: false,
     },
     content: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.BLOB,
       allowNull: false,
     },
     author: {
@@ -33,7 +33,7 @@ Notice.init(
       allowNull: false,
     },
     comments: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.TEXT,
     },
   },
   { sequelize, modelName: "notice" }
