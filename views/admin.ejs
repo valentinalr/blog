@@ -11,6 +11,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/admin.css" />
   </head>
   <body>
     <header><%-include("partials/header")%></header>
@@ -28,8 +29,8 @@
             <th scope="col">Title</th>
             <th scope="col">Content</th>
             <th scope="col">Image</th>
-            <th scope="col">Created at</th>
             <th scope="col">Author</th>
+            <th scope="col">createdAt</th>
             <th scope="col" class="d-flex flex-column align-items-center">
               Actions
             </th>
@@ -37,29 +38,32 @@
         </thead>
 
         <tbody>
+          <% for(article of listaDeArticulos){ %>
           <tr>
-            <td>A</td>
-            <td>a</td>
-            <td>a</td>
-            <td>a</td>
-            <td>a</td>
-            <td>a</td>
-            <td class="d-flex flex-column align-items-center">
+            <td><%= article.id %></td>
+            <td><%= article.title %></td>
+            <td><%= article.content.slice(0,100) + "..." %></td>
+            <td><%= article.image %></td>
+            <td><%= article.author %></td>
+            <td><%= article.createdAt %></td>
+            <td class="d-flex flex-column justify-content-center">
               <button
                 type="button"
-                class="btn btn-primary w-50 mb-3 m-0"
+                class="btn btn-primary w-100 mb-3"
                 id="editBtn"
               >
                 <a href="" style="text-decoration: none; color: white"
                   >Editar</a
-                ></button
-              ><button type="submit" class="btn btn-danger w-50 m-0">
+                >
+              </button>
+              <button type="submit" class="btn btn-danger w-100 mb-3">
                 <a href="" style="text-decoration: none; color: white"
                   >Eliminar</a
                 >
               </button>
             </td>
           </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
