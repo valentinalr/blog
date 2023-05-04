@@ -38,6 +38,20 @@ Notice.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+      get() {
+        const date = new Date(this.getDataValue("createdAt"));
+        const day = date.toLocaleString("es-ES", { weekday: "long" });
+        const dayOfMonth = date.getDate();
+        const month = date.toLocaleString("es-ES", { month: "long" });
+        const year = date.getFullYear();
+        let hour = date.getHours();
+        const minute = date.getMinutes();
+        const ampm = hour >= 12 ? "PM" : "AM";
+        hour %= 12;
+        hour = hour ? hour : 12;
+        const formattedDate = `${day}, ${dayOfMonth} de ${month} del año ${year}, a las ${hour}:${minute} ${ampm}`;
+        return formattedDate;
+      },
     },
     updatedAt: {
       type: DataTypes.DATE,
@@ -78,7 +92,12 @@ async function findOne(req, res) {
 }
 
 async function admin(req, res) {
-  res.render("admin");
+  const listaDeArticulos = await Notice.findAll({
+    order: ["id"],
+  });
+  res.render("admin", {
+    listaDeArticulos,
+  });
 }
 
 module.exports = {

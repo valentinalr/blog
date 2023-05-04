@@ -18,43 +18,14 @@
     <!-- HEADER -->
     <div id="hero" class="text-center">
       <h1><%=article.title %></h1>
-      <p>Creado por Marty McFly el 24 de Setiembre, 2022</p>
+      <p>Publicado el día <%=article.createdAt%> por <%=article.author%></p>
     </div>
 
     <div class="container">
       <div class="row align-items-center mt-5">
         <div class="col-md-6 mx-auto mb-3">
           <section id="content">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-              quaerat, ducimus nobis quo porro dolores laboriosam harum veniam
-              asperiores quisquam voluptates libero quod vero. Sequi
-              perspiciatis natus autem animi iure.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis a
-              at sit nisi, assumenda perspiciatis nemo laudantium veritatis
-              placeat ex. Amet deleniti culpa harum recusandae modi repellat
-              aut, animi quas.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium incidunt et aliquam. Ipsa aspernatur deserunt voluptate
-              ratione commodi! Minima neque repellat nisi expedita obcaecati
-              corrupti ab, harum distinctio. Dolorum, qui.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-              quae ut explicabo esse alias, tempore mollitia distinctio, natus
-              doloremque consectetur ducimus dolor sequi odit tenetur dolore
-              inventore consequuntur amet repudiandae?
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed
-              nesciunt soluta eius, unde, accusamus dolor obcaecati nulla
-              commodi dicta blanditiis voluptas asperiores quam ab quasi!
-              Exercitationem deserunt praesentium officiis esse?
-            </p>
+            <p><%=article.content%></p>
           </section>
           <hr />
         </div>
@@ -63,7 +34,7 @@
       <div class="row align-items-center">
         <div class="col-md-6 mx-auto mt-3">
           <h5>Add your coment</h5>
-          <form>
+          <form action="/notice/<%=article.id%>" method="POST">
             <div class="mb-3">
               <label for="inputName" class="form-label"></label>
               <input
@@ -100,14 +71,6 @@
               rem aut aperiam!"
             </p>
             <small>Luke Skywalker</small>
-            <hr />
-
-            <p>
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              alias odio laudantium temporibus a praesentium dolorem provident
-              rem aut aperiam!"
-            </p>
-            <small>Obi-Wan Kenobi</small>
             <hr />
           </div>
         </div>
