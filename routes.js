@@ -6,5 +6,7 @@ router.get("/home", mainController.findAll);
 router.get("/notice/:id", mainController.findOne); //agregar :id despues
 router.get("/admin", mainController.admin);
 router.get("/api/articulos", mainController.api);
+router.post("/home");
+router.post("/notice/:id");
 
 module.exports = router;
