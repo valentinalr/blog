@@ -25,7 +25,7 @@ Notice.init(
       allowNull: false,
     },
     image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.TEXT,
     },
     author: {
       type: DataTypes.STRING(255),
@@ -34,8 +34,24 @@ Notice.init(
     comments: {
       type: DataTypes.TEXT,
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.literal("CURRENT_TIMESTAMP"),
+    },
   },
-  { sequelize, modelName: "notice", timestamps: false }
+  {
+    sequelize,
+    modelName: "notice",
+    timestamps: true,
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+  }
 );
 
 // sequelize.sync({ force: true });
