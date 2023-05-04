@@ -26,7 +26,6 @@ Notice.init(
     },
     image: {
       type: DataTypes.BLOB,
-      allowNull: false,
     },
     author: {
       type: DataTypes.STRING(255),
@@ -36,7 +35,7 @@ Notice.init(
       type: DataTypes.TEXT,
     },
   },
-  { sequelize, modelName: "notice" }
+  { sequelize, modelName: "notice", timestamps: false }
 );
 
 // sequelize.sync({ force: true });
