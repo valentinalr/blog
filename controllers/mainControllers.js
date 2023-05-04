@@ -41,19 +41,25 @@ Notice.init(
 // sequelize.sync({ force: true });
 sequelize.sync({ alter: true });
 
-function findAll(req, res) {
+async function api(req, res) {
+  const listaDeArticulos = await Notice.findAll();
+  return res.json(listaDeArticulos);
+}
+
+async function findAll(req, res) {
   res.render("home");
 }
 
-function findOne(req, res) {
+async function findOne(req, res) {
   res.render("notice");
 }
 
-function admin(req, res) {
+async function admin(req, res) {
   res.render("admin");
 }
 
 module.exports = {
+  api,
   findAll,
   findOne,
   admin,
