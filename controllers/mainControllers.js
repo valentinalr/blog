@@ -100,9 +100,19 @@ async function admin(req, res) {
   });
 }
 
+async function edit(req, res) {
+  res.render("editArticle");
+}
+
+async function create(req, res) {
+  res.render("createArticle");
+}
+
 module.exports = {
   api,
   findAll,
   findOne,
   admin,
+  edit,
+  create,
 };
