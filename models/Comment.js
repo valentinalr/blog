@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Comments extends Model {
+class Comment extends Model {
   static initModel(sequelize) {
-    Comments.init(
+    Comment.init(
       {
         id: {
           type: DataTypes.BIGINT.UNSIGNED,
@@ -24,8 +24,8 @@ class Comments extends Model {
         timestamps: false,
       }
     );
-    return Comments;
+    return Comment;
   }
 }
 
-module.exports = Comments;
+module.exports = Comment;

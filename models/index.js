@@ -6,17 +6,19 @@ const sequelize = new Sequelize("blog_database", "root", "root", {
   dialect: "mysql",
 });
 
-const Notice = require("./Article");
+const Article = require("./Article");
 const Author = require("./Author");
 const Comment = require("./Comment");
 
-Notice.initModel(sequelize);
+Article.initModel(sequelize);
 Author.initModel(sequelize);
 Comment.initModel(sequelize);
 
+sequelize.sync({ alter: true });
+
 module.exports = {
   sequelize,
-  Notice,
+  Article,
   Author,
   Comment,
 };

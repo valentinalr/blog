@@ -1,4 +1,3 @@
-// sequelize.sync({ force: true });
 //const { sequelize } = require("sequelize");
 //Asosciaciones
 
