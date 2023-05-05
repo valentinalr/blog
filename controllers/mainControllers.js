@@ -27,12 +27,9 @@ Notice.init(
     image: {
       type: DataTypes.TEXT,
     },
-    author: {
+    author_name: {
       type: DataTypes.STRING(255),
       allowNull: false,
-    },
-    comments: {
-      type: DataTypes.TEXT,
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -69,6 +66,59 @@ Notice.init(
 );
 
 // sequelize.sync({ force: true });
+
+// ========================================================================================= //
+
+class Author extends Model {}
+
+Author.init(
+  {
+    id: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    fullName: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING(100),
+      allownull: false,
+    },
+  },
+  {
+    sequelize,
+    modelName: "author",
+    timestamps: false,
+  }
+);
+
+class Comments extends Model {}
+
+Comments.init(
+  {
+    id: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    fullName: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+    },
+    content: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    modelName: "comment",
+    timestamps: false,
+  }
+);
+
 sequelize.sync({ alter: true });
 
 async function api(req, res) {
