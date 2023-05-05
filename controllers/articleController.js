@@ -30,9 +30,7 @@ async function admin(req, res) {
 }
 
 async function formUpdateArticle(req, res) {
-  const listaDeArticulos = await Article.findAll({
-    order: [["createdAt", "DESC"]],
-  });
+  const listaDeArticulos = await Article.findAll();
   res.render("editArticle", {
     listaDeArticulos,
   });

@@ -42,27 +42,28 @@
               id="edited-content"
               name="edited-content"
               rows="3"
-              value="<%= articulo.content %>"
-            ></textarea>
+            >
+<%= articulo.content %></textarea
+            >
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Imagen</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="edited-image"
               name="edited-image"
-              value="<%=articulo.image%>"
+              value="<%= articulo.image %>"
             />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Autor</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               id="edited-author"
               name="edited-author"
-              value=""
+              value="<%= articulo.author_name %>"
             />
           </div>
           <button type="submit" class="btn btn-success mb-3">Guardar</button>
