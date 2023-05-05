@@ -100,11 +100,11 @@ async function admin(req, res) {
   });
 }
 
-async function edit(req, res) {
+async function formUpdate(req, res) {
   res.render("editArticle");
 }
 
-async function create(req, res) {
+async function formUpload(req, res) {
   res.render("createArticle");
 }
 
@@ -113,6 +113,6 @@ module.exports = {
   findAll,
   findOne,
   admin,
-  edit,
-  create,
+  formUpdate,
+  formUpload,
 };
