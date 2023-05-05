@@ -8,7 +8,7 @@ router.get("/admin", mainController.admin);
 router.get("/api/articulos", mainController.api);
 router.get("/admin/editar/:id", mainController.formUpdate);
 router.get("/admin/crear", mainController.formUpload);
-router.post("/home");
+router.post("/admin/crear", mainController.create);
 router.post("/notice/:id");
 
 module.exports = router;
