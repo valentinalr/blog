@@ -1,9 +1,4 @@
-//const { sequelize } = require("sequelize");
-//Asosciaciones
-
 const { Article } = require("../models");
-
-//sequelize.sync({ alter: true });
 
 async function apiArticle(req, res) {
   const listaDeArticulos = await Article.findAll();
