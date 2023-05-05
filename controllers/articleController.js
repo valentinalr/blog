@@ -61,7 +61,6 @@ async function storeEdit(req, res) {
 
 async function destroyArticle(req, res) {
   const id = req.params.id;
-  console.log(req.params);
   await Article.destroy({
     where: {
       id: id,
