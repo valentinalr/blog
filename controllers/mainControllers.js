@@ -158,6 +158,24 @@ async function formUpload(req, res) {
   res.render("createArticle");
 }
 
+async function create(req, res) {
+  const {
+    "new-title": title,
+    "new-content": content,
+    "new-image": image,
+    "new-author": author,
+  } = req.body;
+
+  await Notice.create({
+    title: title,
+    content: content,
+    image: image,
+    author_name: author,
+  });
+
+  return res.redirect("/home");
+}
+
 module.exports = {
   api,
   findAll,
@@ -165,4 +183,5 @@ module.exports = {
   admin,
   formUpdate,
   formUpload,
+  create,
 };
