@@ -8,7 +8,7 @@ router.get("/article/:id", articleController.findOneArticle);
 
 router.post("/admin/crear", articleController.storeArticle);
 router.post("/article/:id", articleController.storeEdit);
-router.delete("/article/:id", articleController.destroyArticle);
+router.get("/article/delete/:id", articleController.destroyArticle);
 
 router.get("/admin", articleController.admin);
 router.get("/admin/crear", articleController.formUploadArticle);

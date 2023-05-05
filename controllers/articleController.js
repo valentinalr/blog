@@ -60,7 +60,14 @@ async function storeEdit(req, res) {
 }
 
 async function destroyArticle(req, res) {
-  return res.send("se borró la noticia");
+  const id = req.params.id;
+  console.log(req.params);
+  await Article.destroy({
+    where: {
+      id: id,
+    },
+  });
+  return res.redirect("/home");
 }
 
 module.exports = {
