@@ -22,8 +22,12 @@
           <h2>Edita tu artículo</h2>
         </div>
         <hr />
-        <form action="/usuarios" method="POST" enctype="multipart/form-data">
-          <% for (const articulo of listaDeArticulos) { %>
+        <% for (const articulo of listaDeArticulos) { %>
+        <form
+          action="/admin/editar/<%=article.id%>"
+          method="POST"
+          enctype="multipart/form-data"
+        >
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Título</label>
             <input
@@ -43,7 +47,7 @@
               name="edited-content"
               rows="3"
             >
-<%= articulo.content %></textarea
+              <%= articulo.content %></textarea
             >
           </div>
           <div class="mb-3">

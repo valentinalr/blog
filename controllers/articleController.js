@@ -87,7 +87,28 @@ async function storeArticle(req, res) {
 }
 
 async function storeEdit(req, res) {
-  return res.send("se editó la noticia");
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/public/img",
+    keepExtensions: true,
+  });
+
+  form.parse(req, async (err, fields, files) => {
+    const {
+      "new-title": title,
+      "new-content": content,
+      "new-image": image,
+      "new-author": author,
+    } = fields;
+
+    await Article.update({
+      title: title,
+      content: content,
+      image: image,
+      author_name: author,
+    });
+  });
+  return res.redirect("/home");
 }
 
 async function destroyArticle(req, res) {
