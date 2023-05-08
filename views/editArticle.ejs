@@ -22,7 +22,7 @@
           <h2>Edita tu artículo</h2>
         </div>
         <hr />
-        <form action="/usuarios" method="POST">
+        <form action="/usuarios" method="POST" enctype="multipart/form-data">
           <% for (const articulo of listaDeArticulos) { %>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Título</label>
@@ -47,12 +47,12 @@
             >
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Imagen</label>
+            <label for="image" class="form-label">Seleccionar una imágen</label>
             <input
-              type="text"
+              type="file"
               class="form-control"
-              id="edited-image"
-              name="edited-image"
+              id="image"
+              name="image"
               value="<%= articulo.image %>"
             />
           </div>
