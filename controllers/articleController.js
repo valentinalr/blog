@@ -31,11 +31,13 @@ async function admin(req, res) {
 }
 
 async function formUpdateArticle(req, res) {
-  const listaDeArticulos = await Article.findAll();
+  const id = req.params.id;
+  const listaDeArticulos = await Article.findAll({
+    where: { id: id },
+  });
   res.render("editArticle", {
     listaDeArticulos,
   });
-  res.render("editArticle");
 }
 
 async function formUploadArticle(req, res) {
