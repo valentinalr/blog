@@ -25,7 +25,7 @@
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
           ),
-          url('/img/<%=article.image%>');
+          url('<%= article.image.includes("http") ? article.image : "/img/" + article.image %>');
       "
     >
       <h1><%=article.title %></h1>
