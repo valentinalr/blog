@@ -1,5 +1,6 @@
 const express = require("express");
 const articleController = require("./controllers/articleController");
+const commentController = require("./controllers/commentController");
 const router = express.Router();
 
 //Retorna los articulos en formato JSON.
@@ -17,6 +18,9 @@ router.post("/admin/crear", articleController.storeArticle);
 router.post("/article/:id", articleController.storeEdit);
 router.get("/admin/crear", articleController.formUploadArticle);
 router.get("/admin/editar/:id", articleController.formUpdateArticle);
+
+//Guardar y postear comentario
+router.post("/article/:id", commentController.review);
 
 //Funcionalidad del botón "eliminar". (No requiere una vista)
 router.get("/article/delete/:id", articleController.destroyArticle);

@@ -47,7 +47,7 @@
       <div class="row align-items-center">
         <div class="col-md-6 mx-auto mt-3">
           <h5>Add your coment</h5>
-          <form action="/notice/<%=article.id%>" method="POST">
+          <form action="/article/<%=article.id%>" method="POST">
             <div class="mb-3">
               <label for="inputName" class="form-label"></label>
               <input
@@ -62,7 +62,8 @@
             <div class="form-floating">
               <textarea
                 class="form-control"
-                id="floatingTextarea2"
+                id="content"
+                name="content"
                 style="height: 150px; padding: 10px"
               ></textarea>
             </div>
@@ -74,17 +75,6 @@
               Send
             </button>
           </form>
-
-          <div id="comments" class="mt-5">
-            <h5>Comments (2)</h5>
-            <p>
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              alias odio laudantium temporibus a praesentium dolorem provident
-              rem aut aperiam!"
-            </p>
-            <small>Luke Skywalker</small>
-            <hr />
-          </div>
         </div>
       </div>
     </div>
