@@ -8,11 +8,7 @@ router.get("/api/articulos", articleController.apiArticle);
 
 //Muestra todos los articulos, o individualmente de acuerdo a su id.
 router.get("/home", articleController.findAllArticle);
-router.get(
-  "/article/:id",
-  articleController.findOneArticle,
-  commentController.findOneComment
-);
+router.get("/article/:id", articleController.findOneArticle);
 
 //Vista de la pagina administrador, donde se da la opción de crear, modificar y eliminar un articulo.
 router.get("/admin", articleController.admin);

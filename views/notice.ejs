@@ -76,10 +76,15 @@
             </button>
           </form>
           <div id="comments" class="mt-5">
-            <h5>Comments (2)</h5>
-            <p><%=comment.content%></p>
-            <small><%=comment.fullName%></small>
+            <% if (listaDeComentarios.length > 0) { %>
+            <h5>Comentarios (<%= listaDeComentarios.length %>)</h5>
+            <% for (let i = 0; i < listaDeComentarios.length; i++) { %>
+            <p><%= listaDeComentarios[i].content %></p>
+            <small><%= listaDeComentarios[i].fullName %></small>
             <hr />
+            <% } %> <% } else { %>
+            <p>Aún no hay comentarios.</p>
+            <% } %>
           </div>
         </div>
       </div>

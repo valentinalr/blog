@@ -4,8 +4,6 @@ async function review(req, res) {
   const { inputName: name, content: content } = req.body;
   const articleId = req.params.id;
 
-  const article = await Article.findByPk(articleId);
-
   await Comment.create({
     fullName: name,
     content: content,
@@ -14,12 +12,18 @@ async function review(req, res) {
   return res.redirect(`/article/${articleId}`);
 }
 
-async function findOneComment(req, res) {
-  const comment = await Comment.findByPk(8);
-  res.render("notice", { comment });
-}
+// async function findComments(req, res) {
+//   const id = req.params.id;
+//   const listaDeComentarios = await Comment.findAll({
+//     where: {
+//       articleId: id,
+//     },
+//   });
+//   res.render("notice", {
+//     listaDeComentarios,
+//   });
+// }
 
 module.exports = {
   review,
-  findOneComment,
 };
