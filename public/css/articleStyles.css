@@ -1,9 +1,9 @@
 #hero {
   max-width: 100vw;
-  height: 400px;
+  height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top;
   color: rgb(240, 240, 240);
   display: flex;
   flex-direction: column;
