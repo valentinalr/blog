@@ -21,9 +21,11 @@ Article.initModel(sequelize);
 Author.initModel(sequelize);
 Comment.initModel(sequelize);
 
-// Clave foraneas paso facu, ver para el Lun
-// Author.hasMany(Article);
-// Article.belongsTo(Author);
+Author.hasMany(Article);
+Article.belongsTo(Author);
+
+Article.hasMany(Comment);
+Comment.belongsTo(Article);
 
 sequelize.sync({ alter: true });
 

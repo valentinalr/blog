@@ -16,7 +16,18 @@
   <body>
     <header><%- include("partials/header") %></header>
     <!-- HEADER -->
-    <div id="hero" class="text-center">
+    <div
+      id="hero"
+      class="text-center"
+      style="
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url('/img/<%=article.image%>');
+      "
+    >
       <h1><%=article.title %></h1>
       <p>
         Publicado el día <%=article.createdAt%> por <%=article.author_name%>
@@ -51,9 +62,8 @@
             <div class="form-floating">
               <textarea
                 class="form-control"
-                placeholder="Leave a comment here"
                 id="floatingTextarea2"
-                style="height: 150px"
+                style="height: 150px; padding: 10px"
               ></textarea>
             </div>
             <button

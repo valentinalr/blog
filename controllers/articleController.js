@@ -66,7 +66,7 @@ async function formUploadArticle(req, res) {
 async function storeArticle(req, res) {
   const form = formidable({
     multiples: true,
-    uploadDir: __dirname + "/public/img",
+    uploadDir: __dirname + "/../public/img",
     keepExtensions: true,
   });
 
@@ -74,14 +74,13 @@ async function storeArticle(req, res) {
     const {
       "new-title": title,
       "new-content": content,
-      "new-image": image,
       "new-author": author,
     } = fields;
 
     await Article.create({
       title: title,
       content: content,
-      image: image,
+      image: files["new-image"].newFilename,
       author_name: author,
     });
   });
@@ -91,26 +90,36 @@ async function storeArticle(req, res) {
 async function storeEdit(req, res) {
   const form = formidable({
     multiples: true,
-    uploadDir: __dirname + "/public/img",
+    uploadDir: __dirname + "/../public/img",
     keepExtensions: true,
   });
 
   form.parse(req, async (err, fields, files) => {
+    // return res.json({
+    //   err,
+    //   fields,
+    //   files,
+    // });
+    const id = req.params.id;
     const {
-      "new-title": title,
-      "new-content": content,
-      "new-image": image,
-      "new-author": author,
+      "edited-title": title,
+      "edited-content": content,
+      "edited-author": author,
     } = fields;
 
-    await Article.update({
-      title: title,
-      content: content,
-      image: image,
-      author_name: author,
-    });
+    await Article.update(
+      {
+        title: title,
+        content: content,
+        image: files.image.newFilename,
+        author_name: author,
+      },
+      {
+        where: { id: id },
+      }
+    );
+    return res.redirect(`/article/${id}`);
   });
-  return res.redirect("/home");
 }
 
 async function destroyArticle(req, res) {
