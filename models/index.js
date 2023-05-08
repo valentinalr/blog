@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
+const articleSeeder = require("../seeders/articleSeeder");
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
@@ -20,6 +21,10 @@ const Comment = require("./Comment");
 Article.initModel(sequelize);
 Author.initModel(sequelize);
 Comment.initModel(sequelize);
+
+(async function () {
+  await articleSeeder(Article);
+})();
 
 Author.hasMany(Article);
 Article.belongsTo(Author);
