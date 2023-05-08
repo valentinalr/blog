@@ -68,7 +68,21 @@ async function storeArticle(req, res) {
     keepExtensions: true,
   });
 
-  form.parse(req, (err, fields, files) => {});
+  form.parse(req, async (err, fields, files) => {
+    const {
+      "new-title": title,
+      "new-content": content,
+      "new-image": image,
+      "new-author": author,
+    } = fields;
+
+    await Article.create({
+      title: title,
+      content: content,
+      image: image,
+      author_name: author,
+    });
+  });
   return res.redirect("/home");
 }
 
