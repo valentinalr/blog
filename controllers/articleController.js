@@ -1,3 +1,4 @@
+const formidable = require("formidable");
 const { Article } = require("../models");
 
 async function apiArticle(req, res) {
@@ -41,21 +42,33 @@ async function formUploadArticle(req, res) {
   res.render("createArticle");
 }
 
-async function storeArticle(req, res) {
-  const {
-    "new-title": title,
-    "new-content": content,
-    "new-image": image,
-    "new-author": author,
-  } = req.body;
+// async function storeArticle(req, res) {
+//   const {
+//     "new-title": title,
+//     "new-content": content,
+//     "new-image": image,
+//     "new-author": author,
+//   } = req.body;
 
-  await Article.create({
-    title: title,
-    content: content,
-    image: image,
-    author_name: author,
+//   await Article.create({
+//     title: title,
+//     content: content,
+//     image: image,
+//     author_name: author,
+//   });
+
+//   return res.redirect("/home");
+// }
+
+// Crear noticia con formidable
+async function storeArticle(req, res) {
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/public/img",
+    keepExtensions: true,
   });
 
+  form.parse(req, (err, fields, files) => {});
   return res.redirect("/home");
 }
 
