@@ -34,7 +34,7 @@ router.post("/register", registerController.createdAuthor);
 
 //Rutas del Login/logout
 router.get("/login", loginController.viewLogin);
-// router.post("/login", registerController.loginUser);
+router.post("/login", loginController.loginUser);
 // router.get("/logout", registerController.logoutUser);
 
 module.exports = router;

@@ -15,27 +15,32 @@
   </head>
   <body>
     <main class="form-signin text-center">
-      <form>
+      <form method="post" action="/login">
         <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
         <div class="form-floating">
           <input
             type="email"
             class="form-control"
-            id="floatingInput"
+            id="email"
             placeholder="name@example.com"
+            name="email"
           />
-          <label for="floatingInput">Email</label>
+          <label for="email">Email</label>
         </div>
         <div class="form-floating">
           <input
             type="password"
             class="form-control"
-            id="floatingPassword"
+            id="password"
             placeholder="Password"
+            name="password"
           />
-          <label for="floatingPassword">Password</label>
+          <label for="password">Password</label>
         </div>
+        <% if (typeof error !== 'undefined' && error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+        <% } %>
 
         <div class="checkbox mb-3">
           <label>
