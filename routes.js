@@ -28,7 +28,7 @@ router.post("/article/review/:id", commentController.review);
 router.get("/article/delete/:id", articleController.destroyArticle);
 
 //Rutas del Registro
-router.get("/registro", registerController.viewRegister);
+router.get("/register", registerController.viewRegister);
 // router.post("/registro", registerController.createUser);
 
 //Rutas del Login/logout
