@@ -2,6 +2,7 @@ const express = require("express");
 const articleController = require("./controllers/articleController");
 const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
+const loginController = require("./controllers/loginController");
 const router = express.Router();
 
 //Retorna los articulos en formato JSON.
@@ -26,12 +27,12 @@ router.post("/article/review/:id", commentController.review);
 //Funcionalidad del botón "eliminar". (No requiere una vista)
 router.get("/article/delete/:id", articleController.destroyArticle);
 
-// //Rutas del Registro
+//Rutas del Registro
 router.get("/registro", registerController.viewRegister);
 // router.post("/registro", registerController.createUser);
 
-// //Rutas del Login/logout
- router.get("/login", registerController.viewLogin);
+//Rutas del Login/logout
+ router.get("/login", loginController.viewLogin);
 // router.post("/login", registerController.loginUser);
 // router.get("/logout", registerController.logoutUser);
 

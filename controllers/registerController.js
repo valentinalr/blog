@@ -1,5 +1,6 @@
 
 
-async function viewLogin(req, res) {
-    res.render("login");
+function iewRegister(req, res) {
+    res.render("register");
 }
+
