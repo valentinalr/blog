@@ -21,17 +21,15 @@ Article.initModel(sequelize);
 Author.initModel(sequelize);
 Comment.initModel(sequelize);
 
-(async function () {
-  await articleSeeder(Article);
-})();
-
 Author.hasMany(Article);
 Article.belongsTo(Author);
 
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
 
-sequelize.sync({ alter: true });
+sequelize.sync({ alter: true }).then(async () => {
+  await articleSeeder(Article);
+});
 
 module.exports = {
   sequelize,
