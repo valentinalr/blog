@@ -1,4 +1,5 @@
 const express = require("express");
+
 const articleController = require("./controllers/articleController");
 const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
@@ -29,10 +30,10 @@ router.get("/article/delete/:id", articleController.destroyArticle);
 
 //Rutas del Registro
 router.get("/register", registerController.viewRegister);
-// router.post("/registro", registerController.createUser);
+router.post("/register", registerController.createdAuthor);
 
 //Rutas del Login/logout
- router.get("/login", loginController.viewLogin);
+router.get("/login", loginController.viewLogin);
 // router.post("/login", registerController.loginUser);
 // router.get("/logout", registerController.logoutUser);
 

@@ -17,6 +17,10 @@ class Author extends Model {
           type: DataTypes.STRING(100),
           allownull: false,
         },
+        password: {
+          type: DataTypes.STRING(255),
+          allownull: false,
+        },
       },
       {
         sequelize,
