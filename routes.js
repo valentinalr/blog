@@ -1,16 +1,24 @@
 const express = require("express");
-
 const articleController = require("./controllers/articleController");
 const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
+const passport = require("passport");
+
 const router = express.Router();
 
 //Retorna los articulos en formato JSON.
 router.get("/api/articulos", articleController.apiArticle);
 
 //Muestra todos los articulos, o individualmente de acuerdo a su id.
-router.get("/home", articleController.findAllArticle);
+router.get(
+  "/home",
+  articleController.findAllArticle,
+  loginController.ensureAuthenticated,
+  function (req, res) {
+    res.send(`Te damos la bienvenida, ${req.user.fullName}!`);
+  }
+);
 router.get("/article/:id", articleController.findOneArticle);
 
 //Vista de la pagina administrador, donde se da la opción de crear, modificar y eliminar un articulo.
@@ -34,7 +42,7 @@ router.post("/register", registerController.createdAuthor);
 
 //Rutas del Login/logout
 router.get("/login", loginController.viewLogin);
-router.post("/login", loginController.loginUser);
+router.post("/login", loginController.login);
 // router.get("/logout", registerController.logoutUser);
 
 module.exports = router;
