@@ -7,7 +7,6 @@ async function apiArticle(req, res) {
 }
 
 async function index(req, res) {
-  console.log("entro");
   const listaDeArticulos = await Article.findAll({
     order: [["createdAt", "DESC"]],
   });
