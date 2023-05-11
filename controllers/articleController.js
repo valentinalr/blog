@@ -127,7 +127,7 @@ async function destroyArticle(req, res) {
       id: id,
     },
   });
-  return res.redirect("/home");
+  return res.redirect("/admin");
 }
 
 module.exports = {
