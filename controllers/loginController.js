@@ -8,7 +8,9 @@ function viewLogin(req, res) {
   res.render("login");
 }
 function isLogged(req, res) {
+  console.log("entro");
   const isLoggedIn = req.isAuthenticated();
+  console.log({isLoggedIn});
   return res.render("home", {
     isLoggedIn,
   });
