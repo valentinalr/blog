@@ -28,17 +28,25 @@ async function findOneArticle(req, res) {
 }
 
 async function formUpdateArticle(req, res) {
-  const id = req.params.id;
-  const listaDeArticulos = await Article.findAll({
-    where: { id: id },
-  });
-  res.render("editArticle", {
-    listaDeArticulos,
-  });
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
+  } else {
+    const id = req.params.id;
+    const listaDeArticulos = await Article.findAll({
+      where: { id: id },
+    });
+    res.render("editArticle", {
+      listaDeArticulos,
+    });
+  }
 }
 
 async function formUploadArticle(req, res) {
-  res.render("createArticle");
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
+  } else {
+    return res.render("createArticle");
+  }
 }
 
 // async function storeArticle(req, res) {

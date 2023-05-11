@@ -5,7 +5,7 @@ async function admin(req, res) {
     return res.redirect("/login");
   }
   const listaDeArticulos = await Article.findAll({
-    order: ["id"],
+    where: { authorId: req.user.id },
   });
   res.render("admin", {
     listaDeArticulos,
