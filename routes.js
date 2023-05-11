@@ -4,6 +4,7 @@ const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
 const logoutController = require("./controllers/logoutController");
+const adminController = require("./controllers/adminController");
 const passport = require("passport");
 
 const router = express.Router();
@@ -23,7 +24,7 @@ router.get(
 router.get("/article/:id", articleController.findOneArticle);
 
 //Vista de la pagina administrador, donde se da la opción de crear, modificar y eliminar un articulo.
-router.get("/admin", articleController.admin);
+router.get("/admin", adminController.admin);
 
 //Rutas y vistas de opciones "editar" articulo.
 router.post("/admin/crear", articleController.storeArticle);
