@@ -4,7 +4,7 @@ const app = express();
 const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
-const { passportConfig } = require("./controllers/loginController");
+const passportConfig = require("./passport");
 
 app.set("view engine", "ejs");
 

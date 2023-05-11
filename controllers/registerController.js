@@ -16,7 +16,13 @@ async function createdAuthor(req, res) {
     password: passHasheada,
   });
 
-  return res.redirect("home");
+  if (newAuthor) {
+    req.login(newAuthor, () => res.redirect("/home"));
+  } else {
+    res.redirect("back");
+  }
+
+  //return res.redirect("home");
 }
 
 module.exports = {
