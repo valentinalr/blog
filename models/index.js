@@ -16,6 +16,7 @@ const sequelize = new Sequelize(
 const Article = require("./Article");
 const Author = require("./Author");
 const Comment = require("./Comment");
+const authorSeeder = require("../seeders/authorSeeder");
 
 Article.initModel(sequelize);
 Author.initModel(sequelize);
@@ -27,7 +28,8 @@ Article.belongsTo(Author);
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
 
-sequelize.sync({ alter: true }).then(async () => {
+sequelize.sync({ force: true }).then(async () => {
+  await authorSeeder(Author);
   await articleSeeder(Article);
 });
 
