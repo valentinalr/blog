@@ -3,7 +3,6 @@ const articleController = require("./controllers/articleController");
 const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
-const passport = require("passport");
 
 const router = express.Router();
 
