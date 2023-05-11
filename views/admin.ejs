@@ -47,7 +47,7 @@
             <td><%= article.title.slice(0,30) + "..." %></td>
             <td><%= article.content.slice(0,50) + "..." %></td>
             <td><%= article.image.slice(0,15) + "..." %></td>
-            <td><%= article.author_name %></td>
+            <td><%=article.authorId.fullName%></td>
             <td><%= article.createdAt %></td>
             <td class="d-flex flex-column justify-content-center">
               <button

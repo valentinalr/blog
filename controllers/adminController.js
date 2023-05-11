@@ -1,4 +1,4 @@
-const { Article } = require("../models");
+const { Article, Author } = require("../models");
 
 async function admin(req, res) {
   if (!req.isAuthenticated()) {
@@ -7,6 +7,11 @@ async function admin(req, res) {
   const listaDeArticulos = await Article.findAll({
     where: { authorId: req.user.id },
   });
+  for (i = 0; i < listaDeArticulos.length; i++) {
+    const name = await Author.findByPk(listaDeArticulos[i].authorId);
+    listaDeArticulos[i].authorId = name;
+  }
+
   res.render("admin", {
     listaDeArticulos,
   });
