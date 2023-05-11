@@ -69,17 +69,13 @@ async function storeArticle(req, res) {
   });
 
   form.parse(req, async (err, fields, files) => {
-    const {
-      "new-title": title,
-      "new-content": content,
-      "new-author": author,
-    } = fields;
+    const { "new-title": title, "new-content": content } = fields;
 
     await Article.create({
       title: title,
       content: content,
       image: files["new-image"].newFilename,
-      author_name: author,
+      authorId: req.user.id,
     });
   });
   return res.redirect("/home");

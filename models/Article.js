@@ -20,10 +20,6 @@ class Article extends Model {
         image: {
           type: DataTypes.TEXT,
         },
-        author_name: {
-          type: DataTypes.STRING(255),
-          allowNull: false,
-        },
         createdAt: {
           type: DataTypes.DATE,
           allowNull: false,
