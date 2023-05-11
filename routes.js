@@ -14,7 +14,7 @@ router.get("/api/articulos", articleController.apiArticle);
 //Muestra todos los articulos, o individualmente de acuerdo a su id.
 router.get(
   "/home",
-  articleController.findAllArticle,
+  articleController.index,
   loginController.ensureAuthenticated, loginController.isLogged,
   function (req, res) {
     res.send(`Te damos la bienvenida, ${req.user.fullName}!`);

@@ -27,18 +27,6 @@ async function findOneArticle(req, res) {
   res.render("notice", { article, listaDeComentarios });
 }
 
-async function admin(req, res) {
-  if (!req.isAuthenticated()) {
-    return res.redirect("/login");
-  } //cambiar por middleware, ver mañana 11/05/23
-
-  const listaDeArticulos = await Article.findAll({
-    order: ["id"],
-  });
-  res.render("admin", {
-    listaDeArticulos,
-  });
-}
 
 async function formUpdateArticle(req, res) {
   const id = req.params.id;
@@ -146,7 +134,6 @@ module.exports = {
   apiArticle,
   index,
   findOneArticle,
-  admin,
   formUpdateArticle,
   formUploadArticle,
   storeArticle,
