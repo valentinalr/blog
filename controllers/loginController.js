@@ -7,6 +7,12 @@ const { Author } = require("../models");
 function viewLogin(req, res) {
   res.render("login");
 }
+function isLogged(req, res) {
+  const isLoggedIn = req.isAuthenticated();
+  return res.render("home", {
+    isLoggedIn,
+  });
+}
 
 function passportConfig() {
   passport.use(
@@ -85,4 +91,5 @@ module.exports = {
   passportConfig,
   login,
   ensureAuthenticated,
+  isLogged,
 };

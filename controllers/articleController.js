@@ -10,6 +10,7 @@ async function findAllArticle(req, res) {
   const listaDeArticulos = await Article.findAll({
     order: [["createdAt", "DESC"]],
   });
+
   res.render("home", {
     listaDeArticulos,
   });

@@ -15,7 +15,11 @@
     <link rel="stylesheet" href="/css/generalStyles.css" />
   </head>
   <body>
-    <header><%-include ("partials/header") %></header>
+    <% if (isLogged) { %>
+    <header><%- include("partials/header") %></header>
+    <% } else { %>
+      <header><%- include("partials/header2") %></header>
+      <% } %>
     <!--AQUI IRA HEADER-->
     <main class="">
       <div id="presentationBanner">

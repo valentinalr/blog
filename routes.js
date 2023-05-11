@@ -14,7 +14,7 @@ router.get("/api/articulos", articleController.apiArticle);
 router.get(
   "/home",
   articleController.findAllArticle,
-  loginController.ensureAuthenticated,
+  loginController.ensureAuthenticated, loginController.isLogged,
   function (req, res) {
     res.send(`Te damos la bienvenida, ${req.user.fullName}!`);
   }
