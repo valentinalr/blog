@@ -11,6 +11,11 @@ async function index(req, res) {
     order: [["createdAt", "DESC"]],
   });
 
+  for (i = 0; i < listaDeArticulos.length; i++) {
+    const name = await Author.findByPk(listaDeArticulos[i].authorId);
+    listaDeArticulos[i].authorId = name;
+  }
+
   return res.render("home", {
     listaDeArticulos,
   });

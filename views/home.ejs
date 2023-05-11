@@ -29,17 +29,20 @@
       <div class="container" id="mainContent">
         <div class="row align-items-center mt-5">
           <div class="col-8 mx-auto">
-            <%for (const articulo of listaDeArticulos) {%>
+            <%for (const article of listaDeArticulos) {%>
             <div id="article">
               <h2 class="articleTitle">
                 <a
-                  href="/article/<%=articulo.id%>"
+                  href="/article/<%=article.id%>"
                   target="_blank"
                   id="contentRoute"
-                  ><%=articulo.title%></a
+                  ><%=article.title%></a
                 >
               </h2>
-              <small class="autor"><%=articulo.author_name%></small>
+              <small class="autor"
+                >Creado por <%=article.authorId.fullName%> el
+                <%=article.createdAt%></small
+              >
               <hr />
               <%}%>
             </div>
