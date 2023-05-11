@@ -9,6 +9,10 @@ class Author extends Model {
           primaryKey: true,
           autoIncrement: true,
         },
+        fullName: {
+          type: DataTypes.STRING(100),
+          allownull: false,
+        },
         email: {
           type: DataTypes.STRING(100),
           allownull: false,
