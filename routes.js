@@ -5,6 +5,7 @@ const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
 const logoutController = require("./controllers/logoutController");
 const adminController = require("./controllers/adminController");
+const makeUserAvailableInViews = require("./middlewares/makeUserAvailableInViews");
 
 const router = express.Router();
 
@@ -12,14 +13,7 @@ const router = express.Router();
 router.get("/api/articulos", articleController.apiArticle);
 
 //Muestra todos los articulos, o individualmente de acuerdo a su id.
-router.get(
-  "/home",
-  articleController.index,
-  loginController.ensureAuthenticated, loginController.isLogged,
-  function (req, res) {
-    res.send(`Te damos la bienvenida, ${req.user.fullName}!`);
-  }
-);
+router.get("/home", makeUserAvailableInViews, articleController.index);
 router.get("/article/:id", articleController.findOneArticle);
 
 //Vista de la pagina administrador, donde se da la opción de crear, modificar y eliminar un articulo.

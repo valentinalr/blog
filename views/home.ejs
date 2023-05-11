@@ -15,11 +15,11 @@
     <link rel="stylesheet" href="/css/generalStyles.css" />
   </head>
   <body>
-    <% if (isLoggedIn) { %>
+    <% if (locals.user) { %>
     <header><%- include("partials/header") %></header>
     <% } else { %>
-      <header><%- include("partials/header2") %></header>
-      <% } %>
+    <header><%- include("partials/header2") %></header>
+    <% } %>
     <!--AQUI IRA HEADER-->
     <main class="">
       <div id="presentationBanner">

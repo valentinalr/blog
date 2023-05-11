@@ -6,14 +6,6 @@ const { Author } = require("../models");
 function viewLogin(req, res) {
   res.render("login", { message: req.flash("error") });
 }
-function isLogged(req, res) {
-  console.log("entro");
-  const isLoggedIn = req.isAuthenticated();
-  console.log({isLoggedIn});
-  return res.render("home", {
-    isLoggedIn,
-  });
-}
 
 function passportConfig() {
   passport.use(
@@ -51,15 +43,6 @@ function passportConfig() {
   });
 }
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    req.session.redirectTo = req.query.redirectTo;
-    res.redirect("/login");
-  }
-}
-
 function login(req, res) {
   passport.authenticate("local", {
     successRedirect: "/home",
@@ -72,6 +55,4 @@ module.exports = {
   viewLogin,
   passportConfig,
   login,
-  ensureAuthenticated,
-  isLogged,
 };

@@ -7,11 +7,12 @@ async function apiArticle(req, res) {
 }
 
 async function index(req, res) {
+  console.log("entro");
   const listaDeArticulos = await Article.findAll({
     order: [["createdAt", "DESC"]],
   });
 
-  res.render("home", {
+  return res.render("home", {
     listaDeArticulos,
   });
 }
@@ -26,7 +27,6 @@ async function findOneArticle(req, res) {
   });
   res.render("notice", { article, listaDeComentarios });
 }
-
 
 async function formUpdateArticle(req, res) {
   const id = req.params.id;
