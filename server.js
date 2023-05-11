@@ -1,9 +1,9 @@
+const flash = require("express-flash");
 const express = require("express");
 const app = express();
 const routes = require("./routes");
 const session = require("express-session");
 const passport = require("passport");
-const localStrategy = require("passport-local");
 const { passportConfig } = require("./controllers/loginController");
 
 app.set("view engine", "ejs");
@@ -20,6 +20,7 @@ app.use(
 app.use(passport.session());
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(flash());
 
 app.use(
   session({

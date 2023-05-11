@@ -1,11 +1,10 @@
-const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const bcrypt = require("bcryptjs");
 const { Author } = require("../models");
 
 function viewLogin(req, res) {
-  res.render("login");
+  res.render("login", { message: req.flash("error") });
 }
 function isLogged(req, res) {
   console.log("entro");
@@ -65,28 +64,9 @@ function login(req, res) {
   passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/login",
+    failureFlash: true,
   })(req, res);
 }
-
-// async function loginUser(req, res) {
-//   const author = await Author.findOne({ where: { email: req.body.email } });
-//   const pass = req.body.password;
-//   const savedUser = author[0].password;
-
-//   const passCheck = await bcrypt.compare(pass, savedUser);
-
-//   if (passCheck) {
-//     return res.redirect("home");
-//   } else {
-//     const errorMessage = "Invalid email or password";
-//     return res.render("login", { error: errorMessage });
-//   }
-//   //   passport.use(
-//   //     localStrategy((email, password, cb) => {
-//   //       //details go here
-//   //     })
-//   //);
-// }
 
 module.exports = {
   viewLogin,
