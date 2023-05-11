@@ -5,7 +5,6 @@ const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
 const logoutController = require("./controllers/logoutController");
 const adminController = require("./controllers/adminController");
-const passport = require("passport");
 
 const router = express.Router();
 
