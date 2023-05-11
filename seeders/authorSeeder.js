@@ -8,7 +8,7 @@ module.exports = async function (Author) {
     {
       fullName: "Fulano Dos",
       email: "fulanodos@gmail.com",
-      password: "1234",
+      password: "12345",
     },
   ]);
 };
