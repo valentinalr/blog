@@ -28,10 +28,9 @@ async function findOneArticle(req, res) {
 
 async function admin(req, res) {
   if (!req.isAuthenticated()) {
-    return res.redirect("/login"); 
-  }
+    return res.redirect("/login");
+  } //cambiar por middleware, ver mañana 11/05/23
 
-  // Aquí van las acciones de administrador
   const listaDeArticulos = await Article.findAll({
     order: ["id"],
   });

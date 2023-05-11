@@ -27,9 +27,11 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    unset: "destroy",
   })
 );
 
+app.use(passport.initialize());
 app.use(passport.session());
 passportConfig();
 

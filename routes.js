@@ -3,6 +3,7 @@ const articleController = require("./controllers/articleController");
 const commentController = require("./controllers/commentController");
 const registerController = require("./controllers/registerController");
 const loginController = require("./controllers/loginController");
+const logoutController = require("./controllers/logoutController");
 
 const router = express.Router();
 
@@ -42,6 +43,6 @@ router.post("/register", registerController.createdAuthor);
 //Rutas del Login/logout
 router.get("/login", loginController.viewLogin);
 router.post("/login", loginController.login);
-// router.get("/logout", registerController.logoutUser);
+router.get("/logout", logoutController.logoutUser);
 
 module.exports = router;
