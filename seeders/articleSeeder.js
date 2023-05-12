@@ -1,5 +1,7 @@
-module.exports = async function (Article) {
-  await Article.bulkCreate([
+const { Article } = require("../models");
+
+module.exports = async function () {
+  const articles = [
     {
       title: "La pudrió al angulo",
       content:
@@ -22,5 +24,6 @@ module.exports = async function (Article) {
       image: "https://images5.alphacoders.com/521/thumb-1920-521476.jpg",
       authorId: 1,
     },
-  ]);
+  ];
+  await Article.bulkCreate(articles);
 };

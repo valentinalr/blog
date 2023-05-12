@@ -1,5 +1,7 @@
-module.exports = async function (Author) {
-  await Author.bulkCreate([
+const { Author } = require("../models");
+
+module.exports = async function () {
+  const authors = [
     {
       fullName: "Fulano Uno",
       email: "fulanouno@gmail.com",
@@ -10,5 +12,6 @@ module.exports = async function (Author) {
       email: "fulanodos@gmail.com",
       password: "12345",
     },
-  ]);
+  ];
+  await Author.bulkCreate(authors);
 };
