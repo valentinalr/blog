@@ -39,4 +39,4 @@ function passportConfig() {
   });
 }
 
-module.exports = passportConfig;
+module.exports = { passportConfig, passport };
