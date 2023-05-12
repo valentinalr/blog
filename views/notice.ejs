@@ -14,20 +14,25 @@
     <link rel="stylesheet" href="/css/articleStyles.css" />
   </head>
   <body>
-    <header><%- include("partials/header") %></header>
-    <!-- HEADER -->
-    <div
-      id="hero"
-      class="text-center"
-      style="
+    <style>
+      div#hero {
         background-image: linear-gradient(
             0deg,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
           ),
-          url('<%= article.image.includes("http") ? article.image : "/img/" + article.image %>');
-      "
-    >
+          url("<%= article.image.includes('http') ? article.image : '/img/' + article.image %>");
+      }
+    </style>
+    <% if (locals.user) { %>
+      <header><%- include("partials/header") %></header>
+      <% } else { %>
+      <header><%- include("partials/header2") %></header>
+      <% } %>
+    <!-- HEADER -->
+    <div
+      id="hero"
+      class="text-center">
       <h1><%=article.title %></h1>
       <p>
         Publicado el día <%=article.createdAt%> por <%=article.authorId.fullName%>
@@ -46,6 +51,7 @@
 
       <div class="row align-items-center">
         <div class="col-md-6 mx-auto mt-3">
+          <% if(locals.user){ %>
           <h5>Add your coment</h5>
           <form action="/article/review/<%=article.id%>" method="POST">
             <div class="mb-3">
@@ -64,7 +70,7 @@
                 class="form-control"
                 id="content"
                 name="content"
-                styles="height:150px; padding:10px;"
+                style="height:150px; padding:10px;"
               ></textarea>
             </div>
             <button
@@ -75,6 +81,9 @@
               Send
             </button>
           </form>
+          <% } else { %>
+             <h3><a href="/login">LogIn</a> para comentar</h3> 
+          <% } %>
           <div id="comments" class="mt-5">
             <% if (listaDeComentarios.length > 0) { %>
             <h5>Comentarios (<%= listaDeComentarios.length %>)</h5>

@@ -28,7 +28,7 @@ Article.belongsTo(Author);
 Article.hasMany(Comment);
 Comment.belongsTo(Article);
 
-sequelize.sync({ force: true }).then(async () => {
+sequelize.sync({ alter: true }).then(async () => {
   await authorSeeder(Author);
   await articleSeeder(Article);
 });
